@@ -1,0 +1,213 @@
+body {
+    background-color: #cbf0f4;
+    margin: 1em;
+
+background-image: url(fondoinicio.jpg);
+background-size: cover; /* Hace que la imagen cubra todo el fondo sin deformarse */
+background-position: center; /* Centra la imagen en la pantalla */
+background-repeat: no-repeat; /* Evita que la imagen se repita */        
+background-attachment: fixed; /* Hace que la imagen de fondo se quede fija al hacer scroll */
+height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+}
+body::after {
+    content: '';
+    position: fixed; /* Cambiado de absolute a fixed */
+    inset: 0; /* Mantiene la posición completa en todo el viewport */
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: -1;
+}
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: auto;
+    justify-content: center;
+    border-radius: 32px;
+    background-color: rgb(9, 154, 40);
+    padding: 1em;
+    position: relative;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+}
+
+button {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1rem; /* Ajuste de tamaño relativo */
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    background-color: rgb(9, 154, 40);
+    width: auto; /* Permite que el botón se ajuste automáticamente */
+    height: auto;
+    justify-content: center;
+}
+
+a {
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+
+button:hover {
+    letter-spacing: 3px; /* Reducir el efecto de espacio */
+    box-shadow: black 0px 7px 29px 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10em;
+    flex-wrap: wrap; /* Permite que las tarjetas se acomoden en varias líneas */
+}
+
+.card {
+    background-color: rgb(9, 154, 40);
+    width: 250px;
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    aspect-ratio: 1 / 0.7;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 1.1em;
+    color: #004d40;
+}
+
+.card a {
+    display: inline-block;
+    background-color: rgb(9, 154, 40);
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.card a:hover {
+    background-color: #fdfdfd;
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: rgb(9, 154, 40);
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: auto;
+    border-radius: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 14em;
+     }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    nav {
+        gap: 15px;
+        flex-direction: column; /* Los elementos se apilan verticalmente */
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem;
+    }
+
+    .container {
+        flex-direction: column; /* Las tarjetas se apilan verticalmente en pantallas pequeñas */
+        align-items: center; /* Centrar las tarjetas */
+    }
+
+    .card {
+        width: 80%; /* Hacer las tarjetas más pequeñas en pantallas pequeñas */
+        margin: 10px 0;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        font-size: 0.9rem; /* Reducir el tamaño de la fuente en pantallas muy pequeñas */
+        padding: 0.5rem 1.2rem;
+    }
+
+    .card {
+        width: 90%; /* Las tarjetas deben ocupar un porcentaje mayor del ancho de la pantalla */
+        margin: 10px 0;
+    }
+
+    footer {
+        font-size: 0.8em; /* Ajustar el tamaño del texto */
+    }
+}
+.logo {
+    width: 90px;
+    text-align: left;
+    
+}
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo del submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.submenu a {
+    padding: 10px 20px;
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+/* Hover sobre los enlaces del submenú */
+.submenu a:hover {
+    background-color: #555;
+}
+
+/* Mostrar el submenú cuando se pasa el ratón sobre el botón "Servicios" */
+.dropdown:hover .submenu {
+    display: block;
+}
